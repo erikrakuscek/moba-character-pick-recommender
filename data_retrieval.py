@@ -9,7 +9,7 @@ dbConn = db.DataBase()
 def process_matches():
     with pyrez.SmiteAPI(devId, authKey) as smite:
         minutes = [',00', ',10', ',20', ',30', ',40', ',50']
-        for day in range(21, 22):
+        for day in range(24, 25):
             for hour in range(24):
                 for minute in minutes:
                     ids = smite.getMatchIds(451, '2022-02-0' + str(day), str(hour) + minute)
@@ -17,7 +17,7 @@ def process_matches():
                     for i in ids:
                         match = smite.getMatch(i.matchId)
 
-                        # test same model for lower level players
+                        # test same model also for lower level players
                         # Check that we only take high level matches and avoid disconnects also consider only matches longer than 10 min
                         num_experienced = len([player for player in match if player.accountLevel > 30])
                         if num_experienced == 10 and match[0].matchDuration > 600:

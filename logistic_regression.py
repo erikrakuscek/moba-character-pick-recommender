@@ -84,6 +84,7 @@ def get_data(gods):
     X = []
     y = []
     for match in matches:
+        # features = list(map(lambda god: 1 if god in match[:5] else 2 if god in match[5:10] else 0, gods))
         features_team_1 = list(map(lambda god: 1 if god in match[:5] else 0, gods))
         features_team_2 = list(map(lambda god: 1 if god in match[5:10] else 0, gods))
         features = features_team_1 + features_team_2
@@ -123,7 +124,6 @@ def get_data(gods):
 
         X.append(features)
         y.append(match[len(match) - 1] - 1)
-        y.append(0 if match[len(match) - 1] - 1 == 1 else 1)
 
     # randomly shuffle cases to avoid overfitting
     c = list(zip(X, y))
@@ -136,8 +136,8 @@ def build_model():
     gods = dbConn.select("SELECT * FROM God ORDER BY name", ())
     X, y, win_good_with, win_good_against = get_data(gods)
 
-    print(len(X))
-    print(len(X[0]))
+    print(len(X), "samples")
+    print(len(X[0]), "features")
 
     # Split the dataset into training and test dataset
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)
@@ -148,17 +148,8 @@ def build_model():
 
     joblib.dump(model, "./models/lr.joblib")
     print(confusion_matrix(y_test, y_pred))
-    print(model.score(X_train, y_train))
-    print(accuracy_score(y_test, y_pred))
-
-    errors = abs(y_pred - y_test)
-    print('Mean Absolute Error:', round(np.mean(errors), 2))
-
-    # Calculate mean absolute percentage error (MAPE)
-    mape = 100 * (errors / y_test)
-    # Calculate and display accuracy
-    accuracy = 100 - np.mean(mape)
-    print('Accuracy:', round(accuracy, 2), '%.')
+    print("Mean accuracy:", model.score(X_train, y_train))
+    print("Accuracy classification score:", accuracy_score(y_test, y_pred))
 
 
 def analyze():
@@ -173,25 +164,24 @@ def analyze():
     importance = model.coef_[0]
     feature_list = [x for _, x in sorted(zip(importance, feature_list))]
     importance = [x for x, _ in sorted(zip(importance, feature_list))]
-    print(feature_list)
 
-    for i, v in enumerate(importance):
-        print('Feature: %s, Score: %.5f' % (feature_list[i], v))
+    # for i, v in enumerate(importance):
+    #    print('Feature: %s, Score: %.5f' % (feature_list[i], v))
 
     # plot feature importance
-    pyplot.bar([x for x in range(len(importance))], importance)
-    pyplot.show()
+    # pyplot.bar([x for x in range(len(importance))], importance)
+    # pyplot.show()
 
 
 def predict():
     model = joblib.load("./models/lr.joblib")
 
     gods = dbConn.select("SELECT * FROM God ORDER BY name", ())
-    gods = list(map(lambda x: x[1], gods))
-    matches = dbConn.select("SELECT t1_god1, t1_god2, t1_god3, t1_god4, t1_god5, t2_god1, t2_god2, t2_god3, t2_god4, t2_god5,"
-                            "t1_player1, t1_player2, t1_player3, t1_player4, t1_player5, t2_player1, t2_player2, t2_player3, t2_player4, t2_player5,"
-                            "t1_player1_mmr, t1_player2_mmr, t1_player3_mmr, t1_player4_mmr, t1_player5_mmr,"
-                            "t2_player1_mmr, t2_player2_mmr, t2_player3_mmr, t2_player4_mmr, t2_player5_mmr, win FROM Match", ())
+    matches = dbConn.select("SELECT "
+                            "t1_god1, t1_god2, t1_god3, t1_god4, t1_god5, "
+                            "t2_god1, t2_god2, t2_god3, t2_god4, t2_god5, "
+                            "ban1, ban2, ban3, ban4, ban5, ban6, ban7, ban8, ban9, ban10, "
+                            "win FROM Match", ())
 
     win_good_with = get_win_good_with(gods, matches)
     win_good_against = get_win_good_against(gods, matches)
@@ -204,9 +194,11 @@ def predict():
 
     team_1 = ('Ah Muzen Cab', 'Khepri', 'Zeus', 'Izanami', 'Kali')
     team_2 = ('Bastet', 'Ratatoskr', 'Janus', 'King Arthur', 'Bakasura')
-    features_team_1 = list(map(lambda god: 1 if god in team_1 else 0, gods))
-    features_team_2 = list(map(lambda god: 1 if god in team_2 else 0, gods))
+    features_team_1 = list(map(lambda god: 1 if god[1] in team_1 else 0, gods))
+    features_team_2 = list(map(lambda god: 1 if god[1] in team_2 else 0, gods))
     features = features_team_1 + features_team_2
+
+    gods = list(map(lambda x: x[1], gods))
 
     X = []
     s_team_1 = 0
@@ -222,7 +214,6 @@ def predict():
                 j = gods.index(god_2_name)
                 s_team_1 += win_good_with[i, j] if win_good_with[i, j] > 0 else 0.5
                 n_synergy_team_1 += 1
-                print(god_1_name, god_2_name, win_good_with[i, j])
 
     for god_1_name in team_2:
         i = gods.index(god_1_name)
@@ -231,7 +222,6 @@ def predict():
                 j = gods.index(god_2_name)
                 s_team_2 += win_good_with[i, j] if win_good_with[i, j] > 0 else 0.5
                 n_synergy_team_2 += 1
-                print(god_1_name, god_2_name, win_good_with[i, j])
 
         for god_2_name in team_1:
             if god_1_name != god_2_name:
@@ -245,18 +235,14 @@ def predict():
     features.append(synergy)
     features.append(counter / n_counter)
 
-    print(s_team_1 / (s_team_1 + s_team_2), s_team_2 / (s_team_1 + s_team_2))
-    print(synergy)
-    # features.append(0)
-    # features.append(0)
+    print("synergy", synergy)
+    print("counter", counter / n_counter)
 
     X.append(features)
-
-    print(X)
-    y_pred = model.predict(X)
-    print(y_pred)
+    y_pred = model.predict(X)[0]  # 0 - team 1 wins, 1 - team 2 wins
+    print("team", y_pred + 1, "wins")
 
 
 build_model()
 analyze()
-# predict()
+predict()
