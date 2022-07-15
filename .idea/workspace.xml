@@ -2,14 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48265031-fa00-4490-aa44-efccecd2ce18" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/simpler models/random_forest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PYREZ_LOG_FILE.log" beforeDir="false" afterPath="$PROJECT_DIR$/PYREZ_LOG_FILE.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logistic_regression.py" beforeDir="false" afterPath="$PROJECT_DIR$/simpler models/logistic_regression.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_retrieval.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_retrieval.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/db.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/lr.joblib" beforeDir="false" afterPath="$PROJECT_DIR$/models/lr.joblib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/rf.joblib" beforeDir="false" afterPath="$PROJECT_DIR$/models/rf.joblib" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pickles/win_good_against.p" beforeDir="false" afterPath="$PROJECT_DIR$/pickles/win_good_against.p" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pickles/win_good_with.p" beforeDir="false" afterPath="$PROJECT_DIR$/pickles/win_good_with.p" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/random_forest.py" beforeDir="false" afterPath="$PROJECT_DIR$/gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simpler models/logistic_regression.py" beforeDir="false" afterPath="$PROJECT_DIR$/simpler models/logistic_regression.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simpler models/random_forest.py" beforeDir="false" afterPath="$PROJECT_DIR$/simpler models/random_forest.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,26 +30,30 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="25PuKtCuM5yliJTlagp153FPxDr" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\FRI\Magistrska\SimplerModels\simpler models" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\FRI\Magistrska\SimplerModels" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\FRI\Magistrska\SimplerModels\simpler models" />
+    </key>
   </component>
-  <component name="RunManager" selected="Python.random_forest">
+  <component name="RunManager" selected="Python.random_forest (1)">
     <configuration name="data_retrieval" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SimplerModels" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -68,7 +75,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="logistic_regression" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="db" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SimplerModels" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -80,7 +87,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="D:\FRI\Magistrska\SimplerModels\simpler models\logistic_regression.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/db.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -89,7 +96,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="random_forest" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="deep_neural_network" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SimplerModels" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -101,7 +108,49 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="D:\FRI\Magistrska\SimplerModels\simpler models\random_forest.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/deep_neural_network.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="logistic_regression (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SimplerModels" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/simpler models" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/simpler models/logistic_regression.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="random_forest (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SimplerModels" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/simpler models" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/simpler models/random_forest.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -112,9 +161,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.random_forest" />
-        <item itemvalue="Python.logistic_regression" />
+        <item itemvalue="Python.random_forest (1)" />
+        <item itemvalue="Python.logistic_regression (1)" />
+        <item itemvalue="Python.deep_neural_network" />
         <item itemvalue="Python.data_retrieval" />
+        <item itemvalue="Python.db" />
       </list>
     </recent_temporary>
   </component>
@@ -132,33 +183,54 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1201" y="326" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1647603486413">
+    <state x="718" y="323" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1657468555416">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1201" y="326" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1647603486413" />
-    <state x="739" y="262" key="FileChooserDialogImpl" timestamp="1645967870999">
+    <state x="718" y="323" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1657468555416" />
+    <state x="206" y="134" key="#data_retrieval" timestamp="1650374845773">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="739" y="262" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1645967870999" />
-    <state width="936" height="237" key="GridCell.Tab.0.bottom" timestamp="1647603342079">
+    <state x="206" y="134" key="#data_retrieval/0.0.1920.1040@0.0.1920.1040" timestamp="1650374845773" />
+    <state x="3050" y="384" key="FileChooserDialogImpl" timestamp="1657448001800">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="3050" y="384" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1657448001800" />
+    <state x="1130" y="384" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1650724255088" />
+    <state width="1254" height="271" key="GridCell.Tab.0.bottom" timestamp="1657885342876">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="1899" height="271" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1657748367542" />
+    <state width="1899" height="271" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1657737807073" />
+    <state width="1899" height="492" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1652442016278" />
+    <state width="1254" height="271" key="GridCell.Tab.0.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1657885342876" />
+    <state width="1254" height="271" key="GridCell.Tab.0.center" timestamp="1657885342876">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="1899" height="271" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1657748367542" />
+    <state width="1899" height="271" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1657737807072" />
+    <state width="1899" height="492" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1652442016277" />
+    <state width="1254" height="271" key="GridCell.Tab.0.center/0.0.2560.1040@0.0.2560.1040" timestamp="1657885342876" />
+    <state width="1254" height="271" key="GridCell.Tab.0.left" timestamp="1657885342875">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="1899" height="271" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1657748367542" />
+    <state width="1899" height="271" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1657737807072" />
+    <state width="1899" height="492" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1652442016277" />
+    <state width="1254" height="271" key="GridCell.Tab.0.left/0.0.2560.1040@0.0.2560.1040" timestamp="1657885342875" />
+    <state width="1254" height="271" key="GridCell.Tab.0.right" timestamp="1657885342876">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="1899" height="271" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1657748367542" />
+    <state width="1899" height="271" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1657737807072" />
+    <state width="1899" height="492" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1652442016278" />
+    <state width="1254" height="271" key="GridCell.Tab.0.right/0.0.2560.1040@0.0.2560.1040" timestamp="1657885342876" />
+    <state x="360" y="174" key="SettingsEditor" timestamp="1650724636296">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="936" height="237" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1647603342079" />
-    <state width="1247" height="237" key="GridCell.Tab.0.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1646150268298" />
-    <state width="936" height="237" key="GridCell.Tab.0.center" timestamp="1647603342065">
+    <state x="360" y="174" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1650724636296" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1650724604568">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="936" height="237" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1647603342065" />
-    <state width="1247" height="237" key="GridCell.Tab.0.center/0.0.2560.1040@0.0.2560.1040" timestamp="1646150268298" />
-    <state width="936" height="237" key="GridCell.Tab.0.left" timestamp="1647603342065">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="936" height="237" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1647603342065" />
-    <state width="1247" height="237" key="GridCell.Tab.0.left/0.0.2560.1040@0.0.2560.1040" timestamp="1646150268298" />
-    <state width="936" height="237" key="GridCell.Tab.0.right" timestamp="1647603342065">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="936" height="237" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1647603342065" />
-    <state width="1247" height="237" key="GridCell.Tab.0.right/0.0.2560.1040@0.0.2560.1040" timestamp="1646150268298" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1650724604568" />
   </component>
 </project>

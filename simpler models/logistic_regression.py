@@ -192,8 +192,8 @@ def predict():
     # plt.colorbar(heatmap)
     # plt.show()
 
-    team_1 = ('Ah Muzen Cab', 'Khepri', 'Zeus', 'Izanami', 'Kali')
-    team_2 = ('Bastet', 'Ratatoskr', 'Janus', 'King Arthur', 'Bakasura')
+    team_1 = ['Bellona', 'Cu Chulainn', 'Jormungandr', 'Ratatoskr', 'Scylla']
+    team_2 = ['Ah Muzen Cab', 'Cu Chulainn', 'Izanami', 'Olorun', 'Ravana']
     features_team_1 = list(map(lambda god: 1 if god[1] in team_1 else 0, gods))
     features_team_2 = list(map(lambda god: 1 if god[1] in team_2 else 0, gods))
     features = features_team_1 + features_team_2

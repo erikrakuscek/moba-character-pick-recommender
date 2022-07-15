@@ -9,29 +9,42 @@ dbConn = db.DataBase()
 def process_matches():
     with pyrez.SmiteAPI(devId, authKey) as smite:
         minutes = [',00', ',10', ',20', ',30', ',40', ',50']
-        for day in range(24, 25):
+        for day in range(7, 11):  # 11
             for hour in range(24):
                 for minute in minutes:
-                    ids = smite.getMatchIds(451, '2022-02-0' + str(day), str(hour) + minute)
-                    print('2022-02-' + str(day) + ' ' + str(hour) + minute)
-                    for i in ids:
-                        match = smite.getMatch(i.matchId)
+                    try:
+                        ids = smite.getMatchIds(451, '2022-07-' + str(day), str(hour) + minute)
+                        print('2022-07-' + str(day) + ' ' + str(hour) + minute)
+                        for i in ids:
+                            try:
+                                match = smite.getMatch(i.matchId)
 
-                        # test same model also for lower level players
-                        # Check that we only take high level matches and avoid disconnects also consider only matches longer than 10 min
-                        num_experienced = len([player for player in match if player.accountLevel > 30])
-                        if num_experienced == 10 and match[0].matchDuration > 600:
-                            team_1 = tuple(map(lambda player: int(player.GodId), filter(lambda player: player.TaskForce == 1, match)))
-                            team_2 = tuple(map(lambda player: int(player.GodId), filter(lambda player: player.TaskForce == 2, match)))
-                            bans = (int(match[0].Ban1Id), int(match[0].Ban2Id), int(match[0].Ban3Id), int(match[0].Ban4Id), int(match[0].Ban5Id), int(match[0].Ban6Id), int(match[0].Ban7Id), int(match[0].Ban8Id), int(match[0].Ban9Id), int(match[0].Ban10Id))
-                            win = (int(match[0].Winning_TaskForce),)
-                            print((int(i.matchId),) + team_1 + team_2 + bans + win)
-                            dbConn.insert("INSERT INTO Match (id,"
-                                          "t1_god1, t1_god2, t1_god3, t1_god4, t1_god5, "
-                                          "t2_god1, t2_god2, t2_god3, t2_god4, t2_god5, "
-                                          "ban1, ban2, ban3, ban4, ban5, ban6, ban7, ban8, ban9, ban10, win)"
-                                          "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
-                                          (int(i.matchId),) + team_1 + team_2 + bans + win)
+                                # test same model also for lower level players
+                                # Check that we only take high level matches and avoid disconnects also consider only matches longer than 10 min
+                                num_experienced = len([player for player in match if player.accountLevel > 30])
+                                if num_experienced == 10 and match[0].matchDuration > 600:
+                                    team_1 = tuple(map(lambda player: int(player.GodId), filter(lambda player: player.TaskForce == 1, match)))
+                                    team_2 = tuple(map(lambda player: int(player.GodId), filter(lambda player: player.TaskForce == 2, match)))
+                                    bans = (int(match[0].Ban1Id), int(match[0].Ban2Id), int(match[0].Ban3Id), int(match[0].Ban4Id), int(match[0].Ban5Id), int(match[0].Ban6Id), int(match[0].Ban7Id), int(match[0].Ban8Id), int(match[0].Ban9Id), int(match[0].Ban10Id))
+                                    win = (int(match[0].Winning_TaskForce),)
+                                    print((int(i.matchId),) + team_1 + team_2 + bans + win)
+                                    dbConn.insert("INSERT INTO Match (id,"
+                                                "t1_god1, t1_god2, t1_god3, t1_god4, t1_god5, "
+                                                "t2_god1, t2_god2, t2_god3, t2_god4, t2_god5, "
+                                                "ban1, ban2, ban3, ban4, ban5, ban6, ban7, ban8, ban9, ban10, win)"
+                                                "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+                                                (int(i.matchId),) + team_1 + team_2 + bans + win)
+
+                                    for player in match:
+                                        dbConn.insert("INSERT INTO Player (match_id, active1, active2, item1, item2, item3, item4, item5, item6) "
+                                                      "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)",
+                                                      (int(i.matchId),) + (int(player.activeId1),) + (int(player.activeId2),) + (int(player.itemId1),) +
+                                                      (int(player.itemId2),) + (int(player.itemId3),) + (int(player.itemId4),) + (int(player.itemId5),) +
+                                                      (int(player.itemId6),))
+                            except:
+                                print('ERROR', i)
+                    except:
+                        print('ERROR', '2022-07-' + str(day), str(hour) + minute)
 
 
 def insert_gods():

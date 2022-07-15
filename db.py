@@ -6,7 +6,7 @@ class DataBase:
         self.conn = psycopg2.connect(
             host="localhost",
             port="5432",
-            database="SmiteData",
+            database="SmiteDataNew",
             user="postgres",
             password="wuboteam"
         )
@@ -48,8 +48,19 @@ class DataBase:
                     "ban8 INT," +
                     "ban9 INT," +
                     "ban10 INT," +
-                    "win INT"
+                    "win INT" +
                     ");")
+        cur.execute("CREATE TABLE IF NOT EXISTS Player (" +
+                    "id SERIAL PRIMARY KEY," +
+                    "match_id INT," +
+                    "active1 INT," +
+                    "active2 INT," +
+                    "item1 INT," +
+                    "item2 INT," +
+                    "item3 INT," +
+                    "item4 INT," +
+                    "item5 INT," +
+                    "item6 INT);")
         cur.execute("CREATE TABLE IF NOT EXISTS God (" +
                     "id INT PRIMARY KEY," +
                     "name TEXT" +

@@ -1,4 +1,3 @@
-import pyrez
 from matplotlib import pyplot
 
 import db
@@ -148,31 +147,39 @@ def build_model():
 
     model.fit(X_train, y_train)
 
+    # Use the forest's predict method on the test data
+    predictions = model.predict(X_test)
+    # Calculate the absolute errors
+    errors = abs(predictions - y_test)
+    # Print out the mean absolute error (mae)
+    print('Mean Absolute Error:', round(np.mean(errors), 2), 'degrees.')
+
+    # Calculate mean absolute percentage error (MAPE)
+    correct = 0
+    for i in range(len(predictions)):
+        if predictions[i] > 0.5 and y_test[i] == 1:
+            correct = correct + 1
+        elif predictions[i] < 0.5 and y_test[i] == 0:
+            correct = correct + 1
+
+    # Calculate and display accuracy
+    accuracy = 100 * (correct / len(y_test))
+    print('Accuracy:', accuracy, '%.')
+
+    # Use the forest's predict method on the test data
+    # predictions = model.predict(X_test)
+    # Calculate the absolute errors
+    # errors = abs(predictions - y_test)
+    ## Print out the mean absolute error (mae)
+    # print('Mean Absolute Error:', round(np.mean(errors), 2), 'degrees.')
+    #
+    ## Calculate mean absolute percentage error (MAPE)
+    # mape = 100 * (errors / y_test)
+    ## Calculate and display accuracy
+    # accuracy = 100 - np.mean(mape)
+    # print('Accuracy:', round(accuracy, 2), '%.')
+
     joblib.dump(model, "../models/rf.joblib")
-
-
-def analyze():
-    model = joblib.load("../models/rf.joblib")
-    gods = dbConn.select("SELECT * FROM God ORDER BY name", ())
-    X, y, win_good_with, win_good_against = get_data(gods)
-
-    # evaluate the model
-    cv = RepeatedKFold(n_splits=10, n_repeats=3, random_state=1)
-    n_scores = cross_val_score(model, X, y, scoring='neg_mean_absolute_error', cv=cv, n_jobs=-1, error_score='raise')
-    # report performance
-    print('Regression MAE: %.3f (%.3f)' % (np.mean(n_scores), np.std(n_scores)))
-
-    # cv = RepeatedStratifiedKFold(n_splits=10, n_repeats=3, random_state=1)
-    # n_scores = cross_val_score(model, X, y, scoring='accuracy', cv=cv, n_jobs=-1, error_score='raise')
-    # report performance
-    # print('Classification accuracy: %.3f (%.3f)' % (np.mean(n_scores), np.std(n_scores)))
-
-    # model.fit(X_train, y_train)
-    # y_pred = model.predict(X_test)
-
-    # print(confusion_matrix(y_test, y_pred))
-    # print("Mean accuracy:", model.score(X_train, y_train))
-    # Łprint("Accuracy classification score:", accuracy_score(y_test, y_pred))
 
 
 def predict():
@@ -194,8 +201,8 @@ def predict():
     # plt.colorbar(heatmap)
     # plt.show()
 
-    team_1 = ('Ah Muzen Cab', 'Khepri', 'Zeus', 'Izanami', 'Kali')
-    team_2 = ('Bastet', 'Ratatoskr', 'Janus', 'King Arthur', 'Bakasura')
+    team_1 = ['Achilles', 'Ares', 'Hera', 'Poseidon', 'Ratatoskr']
+    team_2 = ['Athena', 'Kuzenbo', 'Nu Wa', 'Sylvanus', 'Terra']
     features_team_1 = list(map(lambda god: 1 if god[1] in team_1 else 0, gods))
     features_team_2 = list(map(lambda god: 1 if god[1] in team_2 else 0, gods))
     features = features_team_1 + features_team_2
@@ -245,6 +252,5 @@ def predict():
     print(y_pred)
 
 
-build_model()
-# analyze()
+# build_model()
 predict()
