@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48265031-fa00-4490-aa44-efccecd2ce18" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PYREZ_LOG_FILE.log" beforeDir="false" afterPath="$PROJECT_DIR$/PYREZ_LOG_FILE.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_retrieval.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_retrieval.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/db.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/lr.joblib" beforeDir="false" afterPath="$PROJECT_DIR$/models/lr.joblib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/rf.joblib" beforeDir="false" afterPath="$PROJECT_DIR$/models/rf.joblib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pickles/win_good_against.p" beforeDir="false" afterPath="$PROJECT_DIR$/pickles/win_good_against.p" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pickles/win_good_with.p" beforeDir="false" afterPath="$PROJECT_DIR$/pickles/win_good_with.p" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simpler models/logistic_regression.py" beforeDir="false" afterPath="$PROJECT_DIR$/simpler models/logistic_regression.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simpler models/random_forest.py" beforeDir="false" afterPath="$PROJECT_DIR$/simpler models/random_forest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dnn.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/dnn.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genetic algorithm team based.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/genetic algorithm team based.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genetic algorithm.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/genetic algorithm.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
